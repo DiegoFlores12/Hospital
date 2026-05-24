@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Horarios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="fondo-animado"></div>
+    <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+            <div class="logo-sidebar" onclick="window.location.href='../index.html'"><i class="fa-solid fa-hospital-user"></i> Hospital Mágico</div>
+            <nav class="menu-lateral"><a href="panel.html" class="menu-item "><i class="fa-solid fa-chart-line"></i> Resumen</a>
+<a href="personal.html" class="menu-item "><i class="fa-solid fa-user-doctor"></i> Personal</a>
+<a href="horarios.html" class="menu-item activo"><i class="fa-solid fa-calendar-days"></i> Horarios</a>
+<a href="contratacion.html" class="menu-item "><i class="fa-solid fa-user-plus"></i> Contratación</a></nav>
+            <div class="usuario-sidebar"><div class="avatar"><i class="fa-solid fa-user-shield"></i></div><div class="info-user"><p class="nombre">Administrador</p><p class="rut">Sesión admin</p></div><button class="btn-salir" onclick="logout()" title="Cerrar Sesión"><i class="fa-solid fa-right-from-bracket"></i></button></div>
+        </aside>
+        <main class="main-content">
+<div class="header-dashboard"><h2>Horarios de Trabajo</h2><p>Define jornadas, bloques y disponibilidad de cada profesional.</p></div>
+<div class="panel-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="panel-card glass-panel card-destacada">
+        <div class="card-header-bento"><h3><i class="fa-solid fa-calendar-days icono-cyan"></i> Nuevo bloque horario</h3></div>
+        <form id="form-horario">
+            <div class="input-group"><i class="fa-solid fa-user-doctor"></i><select name="doctor_id" required><option value="">Cargando personal...</option></select></div>
+            <div class="input-group"><i class="fa-solid fa-calendar"></i><input type="date" name="fecha" required></div>
+            <div class="form-row"><div class="input-group"><input type="time" name="inicio" required></div><div class="input-group"><input type="time" name="fin" required></div></div>
+            <div class="input-group"><i class="fa-solid fa-location-dot"></i><input name="ubicacion" placeholder="Piso, box o modalidad"></div>
+            <button class="btn-primario btn-full" type="submit">Guardar horario <i class="fa-solid fa-check"></i></button>
+        </form>
+    </div>
+    <div class="panel-card glass-panel"><div class="card-header-bento"><h3><i class="fa-solid fa-clock icono-cyan"></i> Ejemplo de agenda semanal</h3></div><div class="lista-examenes"><div class="item-examen"><div class="examen-info"><h4>Lunes</h4><p>09:00 - 13:00 · Cardiología</p></div><span class="badge-estado badge-confirmada">Activo</span></div><div class="item-examen"><div class="examen-info"><h4>Miércoles</h4><p>14:00 - 18:00 · Pediatría</p></div><span class="badge-estado badge-confirmada">Activo</span></div></div></div>
+</div></main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
