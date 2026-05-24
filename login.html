@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | Hospital Mágico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="fondo-animado"></div>
+
+    <div class="auth-page">
+        <div class="auth-bento glass-panel">
+            <div class="auth-visual">
+                <div class="overlay-visual"></div>
+                <div class="visual-content">
+                    <div class="logo-auth"><i class="fa-solid fa-hospital-user"></i> Hospital Mágico</div>
+                    <h2>Tu salud en tus manos</h2>
+                    <p>Accede como paciente para agendar y revisar tus atenciones, o como administrador para gestionar personal, horarios y contrataciones.</p>
+                </div>
+            </div>
+
+            <div class="auth-formulario">
+                <a href="index.html" class="btn-volver-bento"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a>
+                <div class="header-form">
+                    <h3>Iniciar Sesión</h3>
+                    <p>Selecciona el tipo de sesión antes de ingresar</p>
+                </div>
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <select name="role" required>
+                            <option value="paciente" selected>Usuario corriente / Paciente</option>
+                            <option value="admin">Administrador</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-id-card"></i>
+                        <input type="text" name="rut" placeholder="RUT o correo" required>
+                    </div>
+                    <div class="input-group password-group">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" id="pwdLogin" name="password" placeholder="Contraseña" required>
+                        <button type="button" class="btn-ojo" onclick="togglePassword('pwdLogin')"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                    <div class="opciones-extra">
+                        <label class="checkbox-container"><input type="checkbox" name="remember"> Recordarme</label>
+                        <a href="#" class="olvido-pass">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn-primario btn-full">Entrar <i class="fa-solid fa-right-to-bracket"></i></button>
+                </form>
+                <p class="auth-link">¿No tienes cuenta de paciente? <a href="registro.html">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

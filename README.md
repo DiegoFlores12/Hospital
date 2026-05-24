@@ -47,3 +47,12 @@ la manera de iniciarlo es simple:
 1.- cd backend  //nos dirigimos a la carpeta "backend" dentro del proyecto
 2.- npm install  //instalamos las dependencias necesarias
 3.- npm run dev  //iniciamos el backend
+
+
+# Usuarios
+
+hay 2 formas de iniciar sesion, esta el usuario normal que uno ingresa sus datos para crear contraseña y despues el administrador, el cual tiene usuario y contraseña ya creados
+
+Administrador:
+email: admin
+contraseña: admin123

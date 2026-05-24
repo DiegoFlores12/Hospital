@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Paciente | Hospital Mágico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="fondo-animado"></div>
+
+    <div class="auth-page">
+        <div class="auth-bento glass-panel" style="max-width: 1100px;">
+            
+            <div class="auth-visual" style="background-image: url('https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=800&q=80');">
+                <div class="overlay-visual"></div>
+                <div class="visual-content">
+                    <div class="logo-auth"><i class="fa-solid fa-hospital-user"></i> Hospital Mágico</div>
+                    <h2>Comienza a cuidar tu salud hoy</h2>
+                    <p>Únete a nuestra plataforma digital y obtén acceso inmediato a tu historial, agendamiento express y resultados en línea. Tu bienestar es nuestra prioridad.</p>
+                </div>
+            </div>
+
+            <div class="auth-formulario">
+                <a href="index.html" class="btn-volver-bento"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a>
+                
+                <div class="header-form">
+                    <h3>Crear Cuenta</h3>
+                    <p>Completa tus datos para tu ficha clínica digital</p>
+                </div>
+                
+                <form id="register-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" name="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" name="apellido" placeholder="Apellido" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <i class="fa-solid fa-id-card"></i>
+                            <input type="text" name="rut" placeholder="RUT (Ej: 12345678-9)" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" name="telefono" placeholder="Teléfono" required>
+                        </div>
+                    </div>
+
+                    <label style="color: var(--texto-secundario); font-size: 0.85rem; margin-bottom: 8px; margin-top: 5px; font-weight: 600; display: block;">Fecha de Nacimiento:</label>
+                    <div class="form-row date-row">
+                        <div class="input-group date-input">
+                            <input type="number" name="dia" placeholder="Día" min="1" max="31" required>
+                        </div>
+                        <div class="input-group date-input">
+                            <select name="mes" required>
+                                <option value="" disabled selected>Mes</option>
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                        <div class="input-group date-input">
+                            <input type="number" name="anio" placeholder="Año" min="1900" max="2026" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group password-group">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" id="pwdRegistro" name="password" placeholder="Contraseña" required>
+                            <button type="button" class="btn-ojo" onclick="togglePassword('pwdRegistro')"><i class="fa-solid fa-eye"></i></button>
+                        </div>
+                        <div class="input-group password-group">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="pwdConfirmar" name="password_confirm" placeholder="Repetir Contraseña" required>
+                            <button type="button" class="btn-ojo" onclick="togglePassword('pwdConfirmar')"><i class="fa-solid fa-eye"></i></button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primario btn-full" style="margin-top: 15px;">Completar Registro <i class="fa-solid fa-check"></i></button>
+                </form>
+                
+                <p class="auth-link">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
