@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Paciente | Mis Exámenes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="fondo-animado"></div>
+    <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+            <div class="logo-sidebar" onclick="window.location.href='../index.html'"><i class="fa-solid fa-hospital-user"></i> Hospital Mágico</div>
+            <nav class="menu-lateral">
+                <a href="panel.html" class="menu-item"><i class="fa-solid fa-house-medical"></i> Inicio</a>
+                <a href="agendar.html" class="menu-item"><i class="fa-solid fa-calendar-plus"></i> Agendar Hora</a>
+                <a href="mis-citas.html" class="menu-item"><i class="fa-solid fa-notes-medical"></i> Mis Citas</a>
+                <a href="mis-examenes.html" class="menu-item activo"><i class="fa-solid fa-flask-vial"></i> Mis Exámenes</a>
+                <a href="perfil.html" class="menu-item"><i class="fa-solid fa-user-pen"></i> Mi Perfil</a>
+            </nav>
+            <div class="usuario-sidebar"><div class="avatar"><i class="fa-solid fa-user"></i></div><div class="info-user"><p class="nombre">Paciente</p><p class="rut">Sesión paciente</p></div><button class="btn-salir" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i></button></div>
+        </aside>
+        <main class="main-content">
+            <div class="header-dashboard"><h2>Mis Exámenes</h2><p>Consulta resultados y descarga informes disponibles.</p></div>
+            <div class="panel-grid" style="grid-template-columns: 1fr;">
+                <div class="panel-card glass-panel card-destacada">
+                    <div class="card-header-bento"><h3><i class="fa-solid fa-flask-vial icono-cyan"></i> Resultados recientes</h3></div>
+                    <div class="lista-examenes" id="mis-examenes-lista"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
