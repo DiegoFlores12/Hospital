@@ -1,12 +1,3 @@
-/* ==========================================================
-   Frontend Hospital Mágico
-   Patrón aplicado: MVC ligero en cliente
-   - Model: estado y acceso a API
-   - View: renderizado del DOM
-   - Controller: eventos y flujo de navegación
-   Nota: no usa datos demo para sesiones ni para paneles protegidos.
-   ========================================================== */
-
 const API_BASE_URL = window.HOSPITAL_API_URL || 'http://localhost:3000/api';
 
 const datosEspecialidades = [
