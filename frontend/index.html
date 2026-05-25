@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Mágico | Innovación y Salud</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="fondo-animado"></div>
+
+    <header class="header-principal" id="inicio">
+        <nav class="navbar glass-panel-nav">
+            <div class="logo" onclick="window.location.href='panel.html'" title="Ir al Panel de Paciente">
+                <i class="fa-solid fa-hospital-user"></i> Hospital Mágico
+            </div>
+            
+<div class="botones-auth">
+                <button class="btn-secundario" onclick="document.getElementById('seccion-especialidades').scrollIntoView({behavior: 'smooth', block: 'center'})">
+                    <i class="fa-solid fa-stethoscope"></i> Especialidades
+                </button>
+                <button class="btn-secundario" onclick="document.getElementById('seccion-medicos').scrollIntoView({behavior: 'smooth', block: 'center'})">
+                    <i class="fa-solid fa-user-doctor"></i> Médicos
+                </button>
+                <button class="btn-secundario" onclick="document.getElementById('seccion-educacion').scrollIntoView({behavior: 'smooth', block: 'center'})">
+                    <i class="fa-solid fa-book-medical"></i> Educación
+                </button>
+
+                <div class="separador-nav"></div>
+
+                <button class="btn-secundario" onclick="window.location.href='login.html'">
+                    <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+                </button>
+                <button class="btn-secundario" onclick="window.location.href='registro.html'">
+                    <i class="fa-solid fa-user-plus"></i> Registrarse
+                </button>
+            </div>
+        </nav>
+
+        <div class="hero-contenido">
+            <h1>Cuidando tu salud con innovación</h1>
+            <p>Tecnología de punta y la calidez humana que tú y tu familia merecen.</p>
+        </div>
+
+        <div class="info-general">
+            <div class="tarjeta-info glass-panel">
+                <div class="icono-contenedor"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                <h3>Nuestra Misión</h3>
+                <p>Brindar atención médica de excelencia, segura y humanizada, centrada en el bienestar integral de cada paciente.</p>
+            </div>
+            <div class="tarjeta-info glass-panel">
+                <div class="icono-contenedor"><i class="fa-solid fa-microscope"></i></div>
+                <h3>Nuestra Visión</h3>
+                <p>Ser el centro de salud referente en innovación médica y tecnología de vanguardia a nivel nacional.</p>
+            </div>
+            <div class="tarjeta-info glass-panel">
+                <div class="icono-contenedor"><i class="fa-solid fa-user-nurse"></i></div>
+                <h3>Nuestro Equipo</h3>
+                <p>Contamos con especialistas altamente capacitados, multidisciplinarios y comprometidos con tu recuperación.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="seccion-stats">
+        <div class="stats-grid glass-panel">
+            <div class="stat-item"><h3 class="counter" data-target="15000">0</h3><p>Pacientes Atendidos</p></div>
+            <div class="stat-item"><h3 class="counter" data-target="50">0</h3><p>Especialistas</p></div>
+            <div class="stat-item"><h3 class="counter" data-target="24">0</h3><p>Horas de Urgencia</p></div>
+            <div class="stat-item"><h3 class="counter" data-target="99">0</h3><p>% Satisfacción</p></div>
+        </div>
+    </section>
+
+    <section class="seccion-especialidades" id="seccion-especialidades">
+        <div class="contenedor-unificado glass-panel">
+            <div class="nav-especialidades" id="tabs-container">
+                <div class="indicador-magico" id="indicador"></div>
+                <div class="tab-item activo"><i class="fa-solid fa-truck-medical"></i> <span class="tab-texto">Urgencias</span></div>
+                <div class="tab-item"><i class="fa-solid fa-heart-pulse"></i> <span class="tab-texto">Cardiología</span></div>
+                <div class="tab-item"><i class="fa-solid fa-baby"></i> <span class="tab-texto">Pediatría</span></div>
+                <div class="tab-item"><i class="fa-solid fa-brain"></i> <span class="tab-texto">Neurología</span></div>
+                <div class="tab-item"><i class="fa-solid fa-bone"></i> <span class="tab-texto">Traumatología</span></div>
+                <div class="tab-item"><i class="fa-solid fa-eye"></i> <span class="tab-texto">Oftalmología</span></div>
+            </div>
+
+            <div class="cuerpo-especialidad">
+                <div class="mitad-imagen"><div class="imagen-especialidad" id="pod-imagen"></div></div>
+                <div class="mitad-texto">
+                    <div class="info-contenido" id="info-panel">
+                        <div class="etiqueta-destacada">Especialidades Médicas</div>
+                        <h2 id="info-titulo">Urgencias y Rescate</h2>
+                        <p id="info-texto">Atención crítica inmediata 24/7. Nuestro equipo está altamente capacitado en maniobras de reanimación cardiopulmonar (RCP) y protocolos de seguridad.</p>
+                        <button class="btn-primario btn-agendar">Agendar Hora Médica <i class="fa-solid fa-calendar-check"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-medicos" id="seccion-medicos">
+        <h2 class="titulo-seccion">Directorio Médico Destacado</h2>
+        <div class="medicos-grid">
+            <div class="medico-card glass-panel">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80" alt="Dr. Roberto">
+                <h4>Dr. Roberto Silva</h4><p class="especialidad">Cardiología Intervencionista</p>
+                <button class="btn-secundario">Ver Perfil</button>
+            </div>
+            <div class="medico-card glass-panel">
+                <img src="https://images.unsplash.com/photo-1594824436998-058b231b14c2?auto=format&fit=crop&w=400&q=80" alt="Dra. Elena">
+                <h4>Dra. Elena Ramos</h4><p class="especialidad">Pediatría Integral</p>
+                <button class="btn-secundario">Ver Perfil</button>
+            </div>
+            <div class="medico-card glass-panel">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Dr. Marcos">
+                <h4>Dr. Marcos Vega</h4><p class="especialidad">Neurología Clínica</p>
+                <button class="btn-secundario">Ver Perfil</button>
+            </div>
+            <div class="medico-card glass-panel">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Dra. Sofia">
+                <h4>Dra. Sofía Castro</h4><p class="especialidad">Traumatología</p>
+                <button class="btn-secundario">Ver Perfil</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-educacion" id="seccion-educacion">
+        <div class="bento-educacion glass-panel">
+            <div class="edu-texto">
+                <div class="etiqueta-destacada">Comunidad Segura</div>
+                <h2>Prevención y Educación Cívica</h2>
+                <p>En Hospital Mágico creemos que la prevención salva vidas. Revisa nuestras guías interactivas para estar preparado ante cualquier emergencia en tu hogar o lugar de trabajo.</p>
+                <div class="edu-modulos">
+                    <div class="modulo-item">
+                        <i class="fa-solid fa-kit-medical icono-cyan"></i>
+                        <div><h4>Primeros Auxilios Básicos</h4><p>Conoce los protocolos R.A.S. y técnicas de inmovilización temprana.</p></div>
+                    </div>
+                    <div class="modulo-item">
+                        <i class="fa-solid fa-fire-extinguisher icono-cyan"></i>
+                        <div><h4>Uso de Extintores</h4><p>Aprende la regla T.A.A.A. para controlar amagos de incendio de forma segura.</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="edu-imagen">
+                <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&w=800&q=80" alt="Educación Médica">
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-portal-showcase">
+        <div class="contenedor-showcase">
+            <h2 class="titulo-seccion" style="margin-top: 20px; margin-bottom: 10px;">Todo tu hospital, en tu bolsillo</h2>
+            <p class="subtitulo-showcase">Conoce todo lo que podrás hacer al crear tu cuenta de paciente totalmente gratis.</p>
+            
+            <div class="portal-grid">
+                <div class="showcase-card glass-panel">
+                    <div class="card-header">
+                        <i class="fa-solid fa-calendar-days icono-cyan"></i>
+                        <h3>Agendamiento Inteligente</h3>
+                    </div>
+                    <p>Revisa la disponibilidad en tiempo real, reserva horas médicas con tus especialistas favoritos o cancela citas con un solo clic. Sin filas y sin esperas telefónicas.</p>
+                </div>
+
+                <div class="showcase-card glass-panel">
+                    <div class="card-header">
+                        <i class="fa-solid fa-flask-vial icono-cyan"></i>
+                        <h3>Resultados en Línea</h3>
+                    </div>
+                    <p>Recibe notificaciones automáticas tan pronto como tus exámenes de laboratorio e imagenología estén listos. Descárgalos en PDF seguros al instante.</p>
+                </div>
+
+                <div class="showcase-card glass-panel">
+                    <div class="card-header">
+                        <i class="fa-solid fa-file-medical icono-cyan"></i>
+                        <h3>Historial Clínico Digital</h3>
+                    </div>
+                    <p>Mantén un registro de tus recetas médicas, indicaciones, diagnósticos anteriores y licencias. Todo almacenado de forma encriptada y privada para ti.</p>
+                </div>
+
+                <div class="showcase-card glass-panel flex-cta">
+                    <div class="card-header">
+                        <i class="fa-solid fa-user-shield icono-cyan"></i>
+                        <h3>Tu Perfil Seguro</h3>
+                    </div>
+                    <p>Únete a miles de pacientes que ya gestionan su salud con nosotros. Es rápido y 100% digital.</p>
+                    <button class="btn-primario btn-showcase-cta" onclick="window.location.href='registro.html'">¡Crear mi cuenta ahora!</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="glass-panel footer-hospital">
+        <div class="footer-info">
+            <p><i class="fa-solid fa-location-dot icono-cyan"></i> Av. de la Salud 123, Alto Hospicio</p>
+            <p><i class="fa-solid fa-phone icono-cyan"></i> +56 9 8765 4321</p>
+            <p><i class="fa-solid fa-envelope icono-cyan"></i> contacto@hospitalmagico.cl</p>
+        </div>
+    </footer>
+
+            <script type="module" src="js/main.js"></script>
+    </body>
+</html>

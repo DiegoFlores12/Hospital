@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pacientes | Hospital Mágico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="fondo-animado"></div>
+    <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+            <div class="logo-sidebar" onclick="window.location.href='../index.html'"><i class="fa-solid fa-hospital-user"></i> Hospital Mágico</div>
+            <nav class="menu-lateral">
+                <a href="panel-doc.html" class="menu-item"><i class="fa-solid fa-house-medical"></i> Inicio</a>
+                <a href="mis-pacientes.html" class="menu-item activo"><i class="fa-solid fa-hospital-user"></i> Mis Pacientes</a>
+            </nav>
+            <div class="usuario-sidebar">
+                <div class="avatar"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="info-user"><p class="nombre">Doctor</p><p class="rut">Sesión doctor</p></div>
+                <button class="btn-salir" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="header-dashboard"><h2>Mis Pacientes</h2><p>Selecciona un paciente para revisar y actualizar su ficha clínica.</p></div>
+            <div class="panel-grid" style="grid-template-columns: 1fr 1.3fr;">
+                <div class="panel-card glass-panel">
+                    <div class="card-header-bento"><h3><i class="fa-solid fa-users icono-cyan"></i> Pacientes atendidos</h3></div>
+                    <div class="lista-examenes" id="doctor-pacientes-lista"><p style="color: var(--texto-secundario);">Cargando pacientes...</p></div>
+                </div>
+                <div class="panel-card glass-panel card-destacada" id="doctor-ficha-paciente">
+                    <p style="color: var(--texto-secundario);">Elige un paciente para ver su historial y modificar peso, estatura o antecedentes médicos.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>

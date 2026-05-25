@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Paciente | Mi Perfil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="fondo-animado"></div>
+
+    <div class="dashboard-layout">
+        
+        <aside class="sidebar glass-panel">
+            <div class="logo-sidebar" onclick="window.location.href='../index.html'">
+                <i class="fa-solid fa-hospital-user"></i> Hospital Mágico
+            </div>
+            
+            <nav class="menu-lateral">
+                <a href="panel.html" class="menu-item"><i class="fa-solid fa-house-medical"></i> Inicio</a>
+                <a href="agendar.html" class="menu-item"><i class="fa-solid fa-calendar-plus"></i> Agendar Hora</a>
+                <a href="mis-citas.html" class="menu-item"><i class="fa-solid fa-notes-medical"></i> Mis Citas</a>
+                <a href="mis-examenes.html" class="menu-item"><i class="fa-solid fa-flask-vial"></i> Mis Exámenes</a>
+                <a href="perfil.html" class="menu-item activo"><i class="fa-solid fa-user-pen"></i> Mi Perfil</a>
+            </nav>
+
+            <div class="usuario-sidebar">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="info-user">
+                    <p class="nombre">Paciente</p>
+                    <p class="rut">Sesión paciente</p>
+                </div>
+                <button class="btn-salir" onclick="logout()" title="Cerrar Sesión"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header-dashboard">
+                <h2>Mi Perfil Médico</h2>
+                <p>Administra tu información personal y antecedentes de salud.</p>
+            </div>
+
+            <div class="panel-grid" style="grid-template-columns: 1fr 1.5fr;">
+                
+                <div class="panel-card glass-panel" style="align-items: center; text-align: center;">
+                    <div class="avatar-perfil-grande" style="display:flex;align-items:center;justify-content:center;">
+                        <i class="fa-solid fa-user" style="font-size: 4rem; color: var(--cyan-brillante);"></i>
+                    </div>
+                    <h3 data-user="nombre-completo" style="font-size: 1.8rem; margin-top: 15px;">Paciente</h3>
+                    <p style="color: var(--texto-secundario); margin-bottom: 20px;">Paciente Registrado</p>
+                    
+                    <div class="info-lista-perfil">
+                        <div class="info-item"><i class="fa-solid fa-id-card"></i> <span data-user="rut">RUT</span></div>
+                        <div class="info-item"><i class="fa-solid fa-cake-candles"></i> <span data-user="fecha_nacimiento">Fecha registrada en ficha</span></div>
+                        <div class="info-item"><i class="fa-solid fa-phone"></i> <span data-user="telefono">Teléfono</span></div>
+                        <div class="info-item"><i class="fa-solid fa-envelope"></i> <span data-user="email">Correo</span></div>
+                    </div>
+
+                    <button class="btn-secundario btn-full" style="margin-top: auto;"><i class="fa-solid fa-pen-to-square"></i> Editar Datos</button>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    
+                    <div class="panel-card glass-panel card-destacada">
+                        <div class="card-header-bento">
+                            <h3><i class="fa-solid fa-file-medical icono-cyan"></i> Ficha Médica de Emergencia</h3>
+                            <button class="btn-secundario btn-sm" style="padding: 5px 15px;"><i class="fa-solid fa-plus"></i> Actualizar</button>
+                        </div>
+                        
+                        <div class="grid-medico">
+                            <div class="dato-medico"><span>Estatura</span><strong data-user="estatura_cm">Sin registrar</strong></div>
+                            <div class="dato-medico"><span>Peso</span><strong data-user="peso_kg">Sin registrar</strong></div>
+                            <div class="dato-medico"><span>Historial Médico</span><strong data-user="historial_medico">Sin antecedentes registrados</strong></div>
+                        </div>
+
+                        <div class="etiquetas-medicas">
+                            <div class="grupo-etiquetas">
+                                <span>Los antecedentes médicos se actualizan desde la sesión del doctor asignado.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-card glass-panel">
+                        <div class="card-header-bento">
+                            <h3><i class="fa-solid fa-shield-halved icono-cyan"></i> Seguridad y Acceso</h3>
+                        </div>
+                        <div class="ajustes-seguridad">
+                            <div class="ajuste-item">
+                                <div><h4>Contraseña</h4><p>Última actualización hace 3 meses</p></div>
+                                <button class="btn-secundario">Cambiar</button>
+                            </div>
+                            <div class="ajuste-item">
+                                <div><h4>Autenticación en 2 Pasos (2FA)</h4><p>Protege tu historial con un código SMS</p></div>
+                                <label class="switch"><input type="checkbox" checked><span class="slider round"></span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>

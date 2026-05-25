@@ -8,14 +8,34 @@ CREATE TABLE IF NOT EXISTS users (
     telefono VARCHAR(40),
     email VARCHAR(160) UNIQUE,
     fecha_nacimiento DATE,
+    peso_kg NUMERIC(5,2),
+    estatura_cm NUMERIC(5,2),
+    historial_medico TEXT,
     password_hash TEXT NOT NULL,
-    role VARCHAR(20) NOT NULL CHECK (role IN ('paciente', 'admin')),
+    role VARCHAR(20) NOT NULL DEFAULT 'paciente',
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+
+-- Migraciones defensivas para bases Neon ya creadas con versiones anteriores del proyecto.
+ALTER TABLE users ADD COLUMN IF NOT EXISTS apellido VARCHAR(120);
+ALTER TABLE users ADD COLUMN IF NOT EXISTS telefono VARCHAR(40);
+ALTER TABLE users ADD COLUMN IF NOT EXISTS email VARCHAR(160);
+ALTER TABLE users ADD COLUMN IF NOT EXISTS password_hash TEXT;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(20) NOT NULL DEFAULT 'paciente';
+ALTER TABLE users ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ NOT NULL DEFAULT now();
+ALTER TABLE users ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT now();
+ALTER TABLE users ADD COLUMN IF NOT EXISTS fecha_nacimiento DATE;
+ALTER TABLE users ADD COLUMN IF NOT EXISTS peso_kg NUMERIC(5,2);
+ALTER TABLE users ADD COLUMN IF NOT EXISTS estatura_cm NUMERIC(5,2);
+ALTER TABLE users ADD COLUMN IF NOT EXISTS historial_medico TEXT;
+CREATE UNIQUE INDEX IF NOT EXISTS users_rut_unique_idx ON users (rut);
+CREATE UNIQUE INDEX IF NOT EXISTS users_email_unique_idx ON users (email) WHERE email IS NOT NULL;
+
 CREATE TABLE IF NOT EXISTS staff (
     id BIGSERIAL PRIMARY KEY,
+    user_id UUID REFERENCES users(id) ON DELETE SET NULL,
     nombre VARCHAR(160) NOT NULL,
     especialidad VARCHAR(120),
     cargo VARCHAR(120),
@@ -27,6 +47,10 @@ CREATE TABLE IF NOT EXISTS staff (
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+ALTER TABLE staff ADD COLUMN IF NOT EXISTS user_id UUID REFERENCES users(id) ON DELETE SET NULL;
+ALTER TABLE staff ADD COLUMN IF NOT EXISTS tipo VARCHAR(30) NOT NULL DEFAULT 'doctor';
+ALTER TABLE staff ADD COLUMN IF NOT EXISTS foto_url TEXT;
 
 CREATE TABLE IF NOT EXISTS work_schedules (
     id BIGSERIAL PRIMARY KEY,
@@ -69,12 +93,6 @@ CREATE TABLE IF NOT EXISTS exams (
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-
--- Compatibilidad si ya creaste la tabla antes de esta versión.
-ALTER TABLE users ADD COLUMN IF NOT EXISTS fecha_nacimiento DATE;
-ALTER TABLE staff ADD COLUMN IF NOT EXISTS tipo VARCHAR(30) NOT NULL DEFAULT 'doctor';
-ALTER TABLE staff ADD COLUMN IF NOT EXISTS foto_url TEXT;
-
 CREATE TABLE IF NOT EXISTS hiring_requests (
     id BIGSERIAL PRIMARY KEY,
     nombre VARCHAR(160) NOT NULL,
@@ -87,10 +105,10 @@ CREATE TABLE IF NOT EXISTS hiring_requests (
 
 INSERT INTO staff (nombre, especialidad, cargo, email, telefono, estado, tipo, foto_url)
 SELECT * FROM (VALUES
-('Dr. Roberto Silva', 'Cardiología', 'Cardiólogo', 'roberto@hospital.test', '+56 9 1111 1111', 'activo', 'doctor', 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&q=80'),
-('Dra. Elena Ramos', 'Pediatría', 'Pediatra', 'elena@hospital.test', '+56 9 2222 2222', 'activo', 'doctor', 'https://images.unsplash.com/photo-1594824436998-058b231b14c2?auto=format&fit=crop&w=150&q=80'),
-('Dr. Marcos Vega', 'Neurología', 'Neurólogo', 'marcos@hospital.test', '+56 9 3333 3333', 'activo', 'doctor', 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80'),
-('Dra. Sofía Castro', 'Traumatología', 'Traumatóloga', 'sofia@hospital.test', '+56 9 4444 4444', 'activo', 'doctor', 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80')
+('Dr. Roberto Silva', 'Cardiología', 'Cardiólogo', 'roberto@hospital.test', '+56 9 1111 1111', 'activo', 'doctor', NULL),
+('Dra. Elena Ramos', 'Pediatría', 'Pediatra', 'elena@hospital.test', '+56 9 2222 2222', 'activo', 'doctor', NULL),
+('Dr. Marcos Vega', 'Neurología', 'Neurólogo', 'marcos@hospital.test', '+56 9 3333 3333', 'activo', 'doctor', NULL),
+('Dra. Sofía Castro', 'Traumatología', 'Traumatóloga', 'sofia@hospital.test', '+56 9 4444 4444', 'activo', 'doctor', NULL)
 ) AS seed(nombre, especialidad, cargo, email, telefono, estado, tipo, foto_url)
 WHERE NOT EXISTS (SELECT 1 FROM staff existing WHERE existing.email = seed.email);
 
